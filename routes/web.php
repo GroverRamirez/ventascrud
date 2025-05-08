@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\VentaController;
 use App\Models\Producto;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -30,6 +32,12 @@ Route::middleware(['auth', 'verified'])->group(function(){
     Route::get('/categorias/{categoria}/edit', [CategoriaController::class, 'edit'])->name('categorias.edit');
     Route::put('/categorias/{categoria}', [CategoriaController::class, 'update'])->name('categorias.update');
     Route::delete('/categorias/{categoria}', [CategoriaController::class, 'destroy'])->name('categorias.destroy');
+
+    // Rutas para el módulo de usuarios
+    Route::resource('usuarios', UsuarioController::class);
+
+    // Rutas para el módulo de ventas
+    Route::resource('ventas', VentaController::class);
 });
 
 require __DIR__.'/settings.php';
