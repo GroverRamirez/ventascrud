@@ -33,7 +33,6 @@ class VentaController extends Controller
     {
         $request->validate([
             'cliente_nombre' => 'required|string|max:255',
-            'usuario_id' => 'required|exists:usuarios,id',
             'productos' => 'required|array',
             'productos.*.id' => 'required|exists:productos,id',
             'productos.*.cantidad' => 'required|integer|min:1',
@@ -42,9 +41,14 @@ class VentaController extends Controller
         try {
             DB::beginTransaction();
 
+            $user = auth()->user();
+            if (!$user) {
+                return back()->with('error', 'No hay usuario autenticado.');
+            }
+
             $venta = new Venta();
             $venta->cliente_nombre = $request->cliente_nombre;
-            $venta->usuario_id = $request->usuario_id;
+            $venta->usuario_id = $user->id;
             $venta->total = 0;
             $venta->save();
 
@@ -56,12 +60,13 @@ class VentaController extends Controller
                 $detalle = new DetalleVenta();
                 $detalle->venta_id = $venta->id;
                 $detalle->producto_id = $producto->id;
+                $detalle->producto_nombre = $producto->nombre;
+                $detalle->producto_precio = $producto->precio;
                 $detalle->cantidad = $item['cantidad'];
-                $detalle->precio_unitario = $producto->precio;
-                $detalle->subtotal = $producto->precio * $item['cantidad'];
+                $detalle->subTotal = $producto->precio * $item['cantidad'];
                 $detalle->save();
 
-                $total += $detalle->subtotal;
+                $total += $detalle->subTotal;
             }
 
             $venta->total = $total;
@@ -73,8 +78,7 @@ class VentaController extends Controller
                 ->with('success', 'Venta registrada exitosamente.');
         } catch (\Exception $e) {
             DB::rollBack();
-            return redirect()->back()
-                ->with('error', 'Error al registrar la venta: ' . $e->getMessage());
+            return response()->json(['error' => $e->getMessage()], 500);
         }
     }
 

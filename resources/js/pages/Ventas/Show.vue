@@ -34,16 +34,16 @@
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
               <tr v-for="detalle in venta.detalles" :key="detalle.id">
-                <td class="px-6 py-4 whitespace-nowrap">{{ detalle.producto?.nombre }}</td>
-                <td class="px-6 py-4 whitespace-nowrap">{{ detalle.cantidad }}</td>
-                <td class="px-6 py-4 whitespace-nowrap">${{ detalle.precio_unitario }}</td>
-                <td class="px-6 py-4 whitespace-nowrap">${{ detalle.subtotal }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-gray-900">{{ detalle.producto?.nombre }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-gray-900">{{ detalle.cantidad }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-gray-900">{{ detalle.producto_precio }} Bs</td>
+                <td class="px-6 py-4 whitespace-nowrap text-gray-900">{{ detalle.subTotal }} Bs</td>
               </tr>
             </tbody>
             <tfoot>
               <tr>
                 <td colspan="3" class="px-6 py-4 text-right font-medium">Total:</td>
-                <td class="px-6 py-4 font-medium">${{ venta.total }}</td>
+                <td class="px-6 py-4 font-medium">{{ venta.total }} Bs</td>
               </tr>
             </tfoot>
           </table>
