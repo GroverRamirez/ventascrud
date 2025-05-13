@@ -14,7 +14,7 @@ use Inertia\Response;
 class AuthenticatedSessionController extends Controller
 {
     /**
-     * Show the login page.
+     * Muestra la página de inicio de sesión.
      */
     public function create(Request $request): Response
     {
@@ -25,7 +25,8 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
-     * Handle an incoming authentication request.
+     * Procesa una solicitud de autenticación entrante.
+     * @param \App\Http\Requests\Auth\LoginRequest $request
      */
     public function store(LoginRequest $request): RedirectResponse
     {
@@ -37,7 +38,7 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
-     * Destroy an authenticated session.
+     * Cierra la sesión autenticada.
      */
     public function destroy(Request $request): RedirectResponse
     {

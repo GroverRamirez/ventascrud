@@ -8,6 +8,7 @@ use App\Models\DetalleVenta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Controlador de Ventas
@@ -63,7 +64,8 @@ class VentaController extends Controller
         try {
             DB::beginTransaction();
 
-            $user = auth()->user();
+            /** @var \App\Models\User|null $user */
+            $user = Auth::user();
             if (!$user) {
                 return back()->with('error', 'No hay usuario autenticado.');
             }

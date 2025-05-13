@@ -11,7 +11,7 @@ use Inertia\Response;
 class EmailVerificationPromptController extends Controller
 {
     /**
-     * Show the email verification prompt page.
+     * Muestra la página de aviso de verificación de correo electrónico.
      */
     public function __invoke(Request $request): RedirectResponse|Response
     {

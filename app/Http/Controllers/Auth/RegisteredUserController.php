@@ -16,7 +16,7 @@ use Inertia\Response;
 class RegisteredUserController extends Controller
 {
     /**
-     * Show the registration page.
+     * Muestra la página de registro de usuario.
      */
     public function create(): Response
     {
@@ -24,7 +24,7 @@ class RegisteredUserController extends Controller
     }
 
     /**
-     * Handle an incoming registration request.
+     * Procesa una solicitud de registro de usuario.
      *
      * @throws \Illuminate\Validation\ValidationException
      */
