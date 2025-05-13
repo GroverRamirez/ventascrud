@@ -38,24 +38,22 @@ const activeItemStyles = computed(
     () => (url: string) => (isCurrentRoute.value(url) ? 'text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100' : ''),
 );
 
-// Menú principal
 const mainNavItems: NavItem[] = [
     {
-        title: 'Panel',
+        title: 'Dashboard',
         href: '/dashboard',
         icon: LayoutGrid,
     },
 ];
 
-// Menú derecho
 const rightNavItems: NavItem[] = [
     {
-        title: 'Repositorio',
+        title: 'Repository',
         href: 'https://github.com/laravel/vue-starter-kit',
         icon: Folder,
     },
     {
-        title: 'Documentación',
+        title: 'Documentation',
         href: 'https://laravel.com/docs/starter-kits',
         icon: BookOpen,
     },
@@ -66,7 +64,7 @@ const rightNavItems: NavItem[] = [
     <div>
         <div class="border-b border-sidebar-border/80">
             <div class="mx-auto flex h-16 items-center px-4 md:max-w-7xl">
-                <!-- Menú móvil -->
+                <!-- Mobile Menu -->
                 <div class="lg:hidden">
                     <Sheet>
                         <SheetTrigger :as-child="true">
@@ -75,7 +73,7 @@ const rightNavItems: NavItem[] = [
                             </Button>
                         </SheetTrigger>
                         <SheetContent side="left" class="w-[300px] p-6">
-                            <SheetTitle class="sr-only">Menú de navegación</SheetTitle>
+                            <SheetTitle class="sr-only">Navigation Menu</SheetTitle>
                             <SheetHeader class="flex justify-start text-left">
                                 <AppLogoIcon class="size-6 fill-current text-black dark:text-white" />
                             </SheetHeader>
@@ -114,7 +112,7 @@ const rightNavItems: NavItem[] = [
                     <AppLogo />
                 </Link>
 
-                <!-- Menú de escritorio -->
+                <!-- Desktop Menu -->
                 <div class="hidden h-full lg:flex lg:flex-1">
                     <NavigationMenu class="ml-10 flex h-full items-stretch">
                         <NavigationMenuList class="flex h-full items-stretch space-x-2">
