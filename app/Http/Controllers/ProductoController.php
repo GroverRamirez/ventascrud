@@ -10,7 +10,7 @@ use App\Models\Categoria;
 class ProductoController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Muestra un listado de los productos.
      */
     public function index()
     {
@@ -20,7 +20,7 @@ class ProductoController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Muestra el formulario para crear un nuevo producto.
      */
     public function create()
     {
@@ -30,7 +30,7 @@ class ProductoController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacena un nuevo producto en la base de datos.
      */
     public function store(Request $request)
     {
@@ -51,7 +51,7 @@ class ProductoController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Muestra la información de un producto específico.
      */
     public function show(Producto $producto)
     {
@@ -61,7 +61,7 @@ class ProductoController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Muestra el formulario para editar un producto existente.
      */
     public function edit(Producto $producto)
     {
@@ -72,7 +72,7 @@ class ProductoController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza la información de un producto en la base de datos.
      */
     public function update(Request $request, Producto $producto)
     {
@@ -93,7 +93,7 @@ class ProductoController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina un producto de la base de datos.
      */
     public function destroy(Producto $producto)
     {

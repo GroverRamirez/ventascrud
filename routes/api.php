@@ -6,3 +6,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
+
+Route::get('/categorias-con-productos', [App\Http\Controllers\CategoriaController::class, 'categoriasConProductos']);

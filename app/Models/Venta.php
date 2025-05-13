@@ -5,6 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Modelo Venta
+ * 
+ * Este modelo representa una venta en el sistema.
+ * Cada venta tiene un cliente, un usuario (vendedor) y un total.
+ * También tiene una relación con los detalles de la venta.
+ */
 class Venta extends Model
 {
     use HasFactory;
@@ -19,11 +26,17 @@ class Venta extends Model
         'total',
     ];
 
+    /**
+     * Obtiene el usuario (vendedor) asociado a la venta
+     */
     public function usuario()
     {
         return $this->belongsTo(Usuario::class);
     }
 
+    /**
+     * Obtiene los detalles de la venta
+     */
     public function detalles()
     {
         return $this->hasMany(DetalleVenta::class);

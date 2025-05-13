@@ -9,12 +9,12 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Poblar la base de datos de la aplicación.
      */
     public function run(): void
     {
         // User::factory(10)->create();
-
+        // Crea un usuario de prueba
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',

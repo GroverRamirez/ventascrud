@@ -5,6 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Modelo Usuario
+ * 
+ * Este modelo representa un usuario del sistema.
+ * Un usuario puede tener varias ventas asociadas.
+ */
 class Usuario extends Model
 {
     use HasFactory;
@@ -22,6 +28,9 @@ class Usuario extends Model
         'contraseña',
     ];
 
+    /**
+     * Obtiene las ventas asociadas a este usuario.
+     */
     public function ventas()
     {
         return $this->hasMany(Venta::class);

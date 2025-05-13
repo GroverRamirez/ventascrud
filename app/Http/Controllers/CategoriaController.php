@@ -9,7 +9,7 @@ use App\Models\Categoria;
 class CategoriaController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Muestra un listado de las categorías.
      */
     public function index()
     {
@@ -19,7 +19,7 @@ class CategoriaController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Muestra el formulario para crear una nueva categoría.
      */
     public function create()
     {
@@ -27,7 +27,7 @@ class CategoriaController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacena una nueva categoría en la base de datos.
      */
     public function store(Request $request)
     {
@@ -43,7 +43,7 @@ class CategoriaController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Muestra la información de una categoría específica.
      */
     public function show(Categoria $categoria)
     {
@@ -53,7 +53,7 @@ class CategoriaController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Muestra el formulario para editar una categoría existente.
      */
     public function edit(Categoria $categoria)
     {
@@ -63,7 +63,7 @@ class CategoriaController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza la información de una categoría en la base de datos.
      */
     public function update(Request $request, Categoria $categoria)
     {
@@ -79,7 +79,7 @@ class CategoriaController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina una categoría de la base de datos.
      */
     public function destroy(Categoria $categoria)
     {
@@ -87,5 +87,14 @@ class CategoriaController extends Controller
 
         return redirect()->route('categorias.index')
             ->with('success', 'Categoría eliminada exitosamente');
+    }
+
+    /**
+     * Devuelve todas las categorías con sus productos asociados (API).
+     */
+    public function categoriasConProductos()
+    {
+        $categorias = \App\Models\Categoria::with('productos')->get();
+        return response()->json($categorias);
     }
 }

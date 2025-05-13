@@ -9,8 +9,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
+/**
+ * Controlador de Ventas
+ * 
+ * Este controlador maneja todas las operaciones relacionadas con las ventas,
+ * incluyendo la creación, visualización y eliminación de ventas.
+ */
 class VentaController extends Controller
 {
+    /**
+     * Muestra una lista de todas las ventas
+     * 
+     * @return \Inertia\Response
+     */
     public function index()
     {
         $ventas = Venta::with(['usuario', 'detalles.producto'])->get();
@@ -19,6 +30,11 @@ class VentaController extends Controller
         ]);
     }
 
+    /**
+     * Muestra el formulario para crear una nueva venta
+     * 
+     * @return \Inertia\Response
+     */
     public function create()
     {
         $productos = Producto::all();
@@ -29,6 +45,12 @@ class VentaController extends Controller
         ]);
     }
 
+    /**
+     * Almacena una nueva venta en la base de datos
+     * 
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(Request $request)
     {
         $request->validate([
@@ -82,6 +104,12 @@ class VentaController extends Controller
         }
     }
 
+    /**
+     * Muestra los detalles de una venta específica
+     * 
+     * @param Venta $venta
+     * @return \Inertia\Response
+     */
     public function show(Venta $venta)
     {
         $venta->load(['usuario', 'detalles.producto']);
@@ -90,6 +118,12 @@ class VentaController extends Controller
         ]);
     }
 
+    /**
+     * Elimina una venta específica
+     * 
+     * @param Venta $venta
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy(Venta $venta)
     {
         try {

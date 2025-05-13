@@ -6,12 +6,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Stateful Domains
+    | Dominios con Estado
     |--------------------------------------------------------------------------
     |
-    | Requests from the following domains / hosts will receive stateful API
-    | authentication cookies. Typically, these should include your local
-    | and production domains which access your API via a frontend SPA.
+    | Las solicitudes de los siguientes dominios / hosts recibirán cookies de
+    | autenticación API con estado. Típicamente, estos deberían incluir tus
+    | dominios locales y de producción que acceden a tu API a través de un SPA frontend.
     |
     */
 
@@ -23,13 +23,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Sanctum Guards
+    | Guardias de Sanctum
     |--------------------------------------------------------------------------
     |
-    | This array contains the authentication guards that will be checked when
-    | Sanctum is trying to authenticate a request. If none of these guards
-    | are able to authenticate the request, Sanctum will use the bearer
-    | token that's present on an incoming request for authentication.
+    | Este array contiene los guardias de autenticación que serán verificados cuando
+    | Sanctum intenta autenticar una solicitud. Si ninguno de estos guardias
+    | puede autenticar la solicitud, Sanctum usará el token portador
+    | que está presente en una solicitud entrante para la autenticación.
     |
     */
 
@@ -37,12 +37,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Expiration Minutes
+    | Minutos de Expiración
     |--------------------------------------------------------------------------
     |
-    | This value controls the number of minutes until an issued token will be
-    | considered expired. This will override any values set in the token's
-    | "expires_at" attribute, but first-party sessions are not affected.
+    | Este valor controla el número de minutos hasta que un token emitido será
+    | considerado expirado. Esto anulará cualquier valor establecido en el atributo
+    | "expires_at" del token, pero las sesiones de primera parte no se ven afectadas.
     |
     */
 
@@ -50,14 +50,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Token Prefix
+    | Prefijo de Token
     |--------------------------------------------------------------------------
     |
-    | Sanctum can prefix new tokens in order to take advantage of numerous
-    | security scanning initiatives maintained by open source platforms
-    | that notify developers if they commit tokens into repositories.
+    | Sanctum puede prefijar nuevos tokens para aprovechar numerosas
+    | iniciativas de escaneo de seguridad mantenidas por plataformas de código abierto
+    | que notifican a los desarrolladores si cometen tokens en repositorios.
     |
-    | See: https://docs.github.com/en/code-security/secret-scanning/about-secret-scanning
+    | Ver: https://docs.github.com/en/code-security/secret-scanning/about-secret-scanning
     |
     */
 
@@ -65,12 +65,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Sanctum Middleware
+    | Middleware de Sanctum
     |--------------------------------------------------------------------------
     |
-    | When authenticating your first-party SPA with Sanctum you may need to
-    | customize some of the middleware Sanctum uses while processing the
-    | request. You may change the middleware listed below as required.
+    | Al autenticar tu SPA de primera parte con Sanctum, es posible que necesites
+    | personalizar algunos de los middleware que Sanctum usa mientras procesa la
+    | solicitud. Puedes cambiar el middleware listado a continuación según sea necesario.
     |
     */
 

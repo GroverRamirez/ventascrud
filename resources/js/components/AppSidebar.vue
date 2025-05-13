@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// Importaciones de componentes y utilidades
 import NavFooter from '@/components/NavFooter.vue';
 import NavMain from '@/components/NavMain.vue';
 import NavUser from '@/components/NavUser.vue';
@@ -12,14 +13,15 @@ import { CalendarCog } from 'lucide-vue-next';
 import { Users } from 'lucide-vue-next';
 import { ChartColumnStacked } from 'lucide-vue-next';
 
+// Elementos del menú principal de la barra lateral
 const mainNavItems: NavItem[] = [
     {
-        title: 'Dashboard',
+        title: 'Panel',
         href: '/dashboard',
         icon: LayoutGrid,
     },
     {
-        title: 'Categorias',
+        title: 'Categorías',
         href: '/categorias',
         icon: ChartColumnStacked,
     },
@@ -40,14 +42,15 @@ const mainNavItems: NavItem[] = [
     },
 ];
 
+// Elementos del menú del pie de la barra lateral
 const footerNavItems: NavItem[] = [
     {
-        title: 'Github Repo',
+        title: 'Repositorio en Github',
         href: 'https://github.com/laravel/vue-starter-kit',
         icon: Folder,
     },
     {
-        title: 'Documentation',
+        title: 'Documentación',
         href: 'https://laravel.com/docs/starter-kits',
         icon: BookOpen,
     },
@@ -55,6 +58,7 @@ const footerNavItems: NavItem[] = [
 </script>
 
 <template>
+    <!-- Barra lateral principal de la aplicación -->
     <Sidebar collapsible="icon" variant="inset">
         <SidebarHeader>
             <SidebarMenu>

@@ -9,6 +9,9 @@ use Inertia\Inertia;
 
 class UsuarioController extends Controller
 {
+    /**
+     * Muestra un listado de los usuarios.
+     */
     public function index()
     {
         $usuarios = \App\Models\Usuario::all();
@@ -17,11 +20,17 @@ class UsuarioController extends Controller
         ]);
     }
 
+    /**
+     * Muestra el formulario para crear un nuevo usuario.
+     */
     public function create()
     {
         return Inertia::render('Usuarios/Create');
     }
 
+    /**
+     * Almacena un nuevo usuario en la base de datos.
+     */
     public function store(Request $request)
     {
         $request->validate([
@@ -42,6 +51,9 @@ class UsuarioController extends Controller
             ->with('success', 'Usuario creado exitosamente.');
     }
 
+    /**
+     * Muestra el formulario para editar un usuario existente.
+     */
     public function edit(Usuario $usuario)
     {
         return Inertia::render('Usuarios/Edit', [
@@ -49,6 +61,9 @@ class UsuarioController extends Controller
         ]);
     }
 
+    /**
+     * Actualiza la información de un usuario en la base de datos.
+     */
     public function update(Request $request, Usuario $usuario)
     {
         $request->validate([
@@ -72,6 +87,9 @@ class UsuarioController extends Controller
             ->with('success', 'Usuario actualizado exitosamente.');
     }
 
+    /**
+     * Elimina un usuario de la base de datos.
+     */
     public function destroy(Usuario $usuario)
     {
         $usuario->delete();
