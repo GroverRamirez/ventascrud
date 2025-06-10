@@ -17,6 +17,7 @@ class Venta extends Model
     use HasFactory;
 
     public $timestamps = false;
+    const sumatotal=0;
 
     protected $table = 'ventas';
     
