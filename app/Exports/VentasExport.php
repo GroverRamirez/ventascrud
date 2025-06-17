@@ -36,7 +36,7 @@ class VentasExport implements FromCollection, WithHeadings, WithStyles
 
     public function headings(): array
     {
-        return ['Cliente1', 'Total', 'Fecha'];
+        return ['Cliente', 'Total', 'Fecha'];
     }
 
     public function styles(Worksheet $sheet)

@@ -15,10 +15,9 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ClientesExport;
 use App\Exports\VendedoresExport;
 use Illuminate\Http\Request;
+use App\Http\Controllers\WelcomeController;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome');
-})->name('home');
+Route::get('/', [WelcomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 

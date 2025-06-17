@@ -15,7 +15,7 @@
           class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 ml-2"
           target="_blank"
         >
-          <span>Descargar XLS</span>
+          <span>Descargar EXCEL</span>
         </a>
       </div>
       <div class="flex gap-4 mb-4">

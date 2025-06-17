@@ -8,6 +8,12 @@ type Producto = {
   imagen?: string;
 };
 
+type Categoria = {
+  id: number;
+  nombre: string;
+  productos: Producto[];
+};
+
 type PageProps = {
   auth: {
     user: {
@@ -19,7 +25,7 @@ type PageProps = {
 };
 
 const props = defineProps<{ 
-  productos: Producto[];
+  categorias: Categoria[];
   auth: PageProps['auth'];
 }>();
 </script>
@@ -59,16 +65,26 @@ const props = defineProps<{
       <a href="/productos" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition">Ver productos</a>
     </header>
     <main class="flex-1 flex flex-col items-center justify-center">
-      <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Productos destacados</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        <div v-for="producto in productos" :key="producto.id" class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 flex flex-col items-center">
-          <img
-            :src="producto.imagen || 'https://via.placeholder.com/150'"
-            alt="Imagen del producto"
-            class="w-24 h-24 object-cover rounded mb-2"
-          />
-          <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-1">{{ producto.nombre }}</h3>
-          <span class="text-blue-600 font-bold text-md mb-2">{{ producto.precio }} Bs</span>
+      <div v-for="categoria in categorias" :key="categoria.id" class="mb-16 w-full flex flex-col items-center">
+        <h2 class="text-3xl font-extrabold mb-8 text-gray-900 dark:text-white text-center tracking-wide drop-shadow">
+          {{ categoria.nombre }}
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 justify-center">
+          <div
+            v-for="producto in categoria.productos"
+            :key="producto.id"
+            class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-lg p-6 flex flex-col items-center transition-transform transform hover:scale-105 hover:shadow-2xl min-w-[220px] max-w-xs mx-auto"
+          >
+            <div class="w-20 h-20 bg-blue-200 dark:bg-gray-600 rounded-full flex items-center justify-center mb-4">
+              <img
+                :src="producto.imagen || 'https://via.placeholder.com/80?text=No+Img'"
+                alt="Imagen del producto"
+                class="w-16 h-16 object-cover rounded-full shadow"
+              />
+            </div>
+            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2 text-center">{{ producto.nombre }}</h3>
+            <span class="text-blue-700 dark:text-blue-300 font-semibold text-md mb-1">{{ producto.precio }} Bs</span>
+          </div>
         </div>
       </div>
     </main>
