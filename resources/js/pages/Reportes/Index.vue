@@ -48,5 +48,5 @@ const props = defineProps({
     required: true
   }
 });
-const contador=1;
+let contador = 1;
 </script>

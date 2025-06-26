@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * Este modelo representa el detalle de una venta en el sistema.
  * Cada detalle contiene información sobre un producto específico vendido,
- * incluyendo la cantidad, precio unitario y subtotal.
+ * incluyendo el nombre del producto, su precio, la cantidad y el subtotal.
  */
 class DetalleVenta extends Model
 {
@@ -23,9 +23,10 @@ class DetalleVenta extends Model
     protected $fillable = [
         'venta_id',
         'producto_id',
+        'producto_nombre',
+        'producto_precio',
         'cantidad',
-        'precio_unitario',
-        'subtotal',
+        'subTotal',
     ];
 
     /**
