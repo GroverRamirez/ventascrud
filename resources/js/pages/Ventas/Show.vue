@@ -34,9 +34,13 @@
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
               <tr v-for="detalle in venta.detalles" :key="detalle.id">
-                <td class="px-6 py-4 whitespace-nowrap text-gray-900">{{ detalle.producto?.nombre }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-gray-900">
+                  {{ detalle.producto ? detalle.producto.nombre : detalle.producto_nombre }}
+                </td>
                 <td class="px-6 py-4 whitespace-nowrap text-gray-900">{{ detalle.cantidad }}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-gray-900">{{ detalle.producto_precio }} Bs</td>
+                <td class="px-6 py-4 whitespace-nowrap text-gray-900">
+                  {{ detalle.producto ? detalle.producto.precio : detalle.producto_precio }} Bs
+                </td>
                 <td class="px-6 py-4 whitespace-nowrap text-gray-900">{{ detalle.subTotal }} Bs</td>
               </tr>
             </tbody>
