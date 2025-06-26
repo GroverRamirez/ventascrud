@@ -22,6 +22,11 @@ Route::get('/', [WelcomeController::class, 'index'])->name('home');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 Route::middleware(['auth', 'verified'])->group(function(){
+    // Ruta temporal para probar mensajes flash
+    Route::get('/test-flash', function() {
+        return Inertia::render('TestFlash');
+    })->name('test.flash');
+    
     Route::get('/productos', [ProductoController::class, 'index'])->name('productos.index');
     Route::get('/productos/create', [ProductoController::class, 'create'])->name('productos.create');
     Route::post('/productos', [ProductoController::class, 'store'])->name('productos.store');

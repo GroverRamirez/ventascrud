@@ -99,10 +99,11 @@ class VentaController extends Controller
             DB::commit();
 
             return redirect()->route('ventas.index')
-                ->with('success', 'Venta registrada exitosamente.');
+                ->with('success', '¡Venta registrada exitosamente! Cliente: ' . $venta->cliente_nombre . ' - Total: ' . number_format($total, 2) . ' Bs');
         } catch (\Exception $e) {
             DB::rollBack();
-            return response()->json(['error' => $e->getMessage()], 500);
+            return redirect()->back()
+                ->with('error', 'Error al registrar la venta: ' . $e->getMessage());
         }
     }
 
